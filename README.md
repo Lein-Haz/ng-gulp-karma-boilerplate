@@ -17,6 +17,12 @@ npm install
 ```
 - install all of projects npm dependencies
 
+## 1.5 Install Global Dependencies
+```bash
+	sudo npm -g install karma bower gulp
+```
+- in case these aren't already in your Path
+
 ## 2. Setup: Bower
 ```bash
 bower install
