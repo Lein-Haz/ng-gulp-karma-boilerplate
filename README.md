@@ -11,25 +11,25 @@ An extended AngularJS Boilerplate to kick off new projects, with SASS, Karma-Jas
 git clone https://github.com/Lein-Haz/ng-gulp-karma-boilerplate.git
 ```
 
-## 1. Setup: Node
-```bash
-npm install
-```
-- install all of projects npm dependencies
-
-## 1.5 Install Global Dependencies
+## 1. Install Global Dependencies
 ```bash
 	sudo npm -g install karma bower gulp
 ```
 - in case these aren't already in your Path
 
-## 2. Setup: Bower
+## 2. Setup: Node
+```bash
+npm install
+```
+- install all of projects npm dependencies
+
+## 3. Setup: Bower
 ```bash
 bower install
 ```
 - install bower dependencies
 
-## 3. Build Development version
+## 4. Build Development version
 ```bash
 gulp
 ```
