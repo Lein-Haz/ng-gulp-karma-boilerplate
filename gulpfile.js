@@ -59,7 +59,7 @@ gulp.task('images', function() {
   return gulp.src('./src/images/**/*')
     //.pipe($.if(!compileFlag, $.changed('./src/images')))
     //.pipe($.if(compileFlag, $.changed('./build/images')))
-    .pipe($.changed('./src/images'))
+    .pipe($.changed('build/images'))
     .pipe($.imagemin({
       optimizationLevel: 3,
       progressive: true,
