@@ -13,7 +13,7 @@ git clone https://github.com/Lein-Haz/ng-gulp-karma-boilerplate.git
 
 ## 1. Install Global Dependencies
 ```bash
-	sudo npm -g install karma bower gulp
+sudo npm -g install karma bower gulp
 ```
 - in case these aren't already in your Path
 
