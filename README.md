@@ -19,7 +19,7 @@ npm install
 
 ## 2. Setup: Bower
 ```bash
-npm install
+bower install
 ```
 - install bower dependencies
 
@@ -28,16 +28,17 @@ npm install
 gulp
 ```
 - this will process following tasks:
- * 1. clean /build folder
- * 2. copy bower files to /build folder
- * 3. compile SASS files, minify and uncss compiled css
- * 4. copy and minimize images
- * 5. minify and copy all HTML files into $templateCache
- * 6. build index.html
- * 7. copy fonts
- * 8. run karma unit tests
- * 9. show build folder size
- * 10. launch BrowserSync and start watching for file changes
+ * 1. Lint JS files in src/ folder
+ * 2. Clean /build folder
+ * 3. Copy bower files to /build folder
+ * 4. Compile SASS files, minify and uncss compiled css
+ * 5. Copy and minimize images
+ * 6. Minify and copy all HTML files into $templateCache
+ * 7. Build index.html
+ * 8. Copy fonts
+ * 9. Run karma unit tests
+ * 10. Show build folder size
+ * 11. Launch BrowserSync and start watching for file changes
 
 ## Start file watch
 ```bash
@@ -47,7 +48,7 @@ Run this command to start BrowserSync serve and watch without going through buil
 **Note:** This is in case you inadvertently stopped BrowserSync, a build has to be run prior to using
  this command by itself.
 - all file within /src will be watched for changes and injected into browser thanks to BrowserSync
-- a recovery command that is merely step 10 of the above `gulp` command, if BrowserSync stops for some reason
+- a recovery command that is merely step 11 of the above `gulp` command, if BrowserSync stops for some reason
 
 
 ## Changelog
