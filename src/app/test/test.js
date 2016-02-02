@@ -2,7 +2,7 @@ angular.module('gulp-bp.test',[
     'ui.router'
 ])
 
-    .config(function config( $stateProvider ) {
+    .config(['$stateProvider',function config( $stateProvider ) {
         $stateProvider.state( 'test', {
             url: '/test',
             views: {
@@ -13,7 +13,7 @@ angular.module('gulp-bp.test',[
             },
             data:{ pageTitle: 'Test' }
         });
-    })
+    }])
 
     .controller('TestCtrl',[
         '$scope',
