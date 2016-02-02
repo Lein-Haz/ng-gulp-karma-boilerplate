@@ -57,7 +57,11 @@ Run this command to start BrowserSync serve and watch without going through buil
 - a recovery command that is merely step 11 of the above `gulp` command, if BrowserSync stops for some reason
 
 
-## Changelog
+## Changelog(DD.MM.YYYY)
+### 0.10.1
+- karma.conf now loading dependencies from buildcfg, no longer need to manually change them<br>
+01.02.2016
+
 ### 0.10.0
 - First release, build working compile needs work<br>
 31.01.2016

@@ -3,19 +3,21 @@
  */
 module.exports = {
     /**
+     * TODO may remove build and compile dir, if not being used any gulp tasks.
+     * Later test if vendor files can be dynamically picked up, while ensuring
+     * peer dependencies are met.
+     */
+
+    /**
      * The `build_dir` folder is where our projects are compiled during
      * development and the `compile_dir` folder is where our app resides once it's
      * completely built.
      */
     build_dir: 'build',
     compile_dir: 'bin',
-    tester: function(){
-        return testFunc();
-    },
-    //TODO edit
     /**
      * This is the same as `app_files`, except it contains patterns that
-     * reference vendor code (`vendor/`) that we need to place into the build
+     * reference vendor code (`bower_files/`) that we need to place into the build
      * process somewhere. While the `app_files` property ensures all
      * standardized files are collected for compilation, it is the user's job
      * to ensure non-standardized (i.e. vendor-related) files are handled
@@ -60,7 +62,3 @@ module.exports = {
         ]
     }
 };
-
-function testFunc(){
-    return 'Oh yeah';
-}
