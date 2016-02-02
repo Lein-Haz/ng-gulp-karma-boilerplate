@@ -1,8 +1,8 @@
 
 'use strict';
-var buildConfig     = require('../gulp.buildCfg.js');
-var vendorArray        = buildConfig.bower_files.js;
-var appAssetsArray  = [
+var buildConfig         = require('../gulp.buildcfg.js');
+var vendorArray         = buildConfig.bower_files.js;
+var appAssetsArray      = [
     'build/templates-common.js',
     'build/templates-app.js',
     'bower_files/angular-mocks/angular-mocks.js',
