@@ -31,7 +31,7 @@ var gulp            = require('gulp'),
     $               = require('gulp-load-plugins')(),
     del             = require('del'),
     runSequence     = require('run-sequence'),
-    buildConfig     = require('./gulp.buildCfg.js')
+    buildConfig     = require('./gulp.buildcfg.js')
 
     ;
 
@@ -45,12 +45,14 @@ require('./gulpTasks/bsyncTask.js');
 require('./gulpTasks/compileTask.js');
 require('./karma/karmaGulpTask.js');
 
-var compileFlag = false;
+//var compileFlag = false;
+var compileFlag = true;
 
 /**
  * public functions
  */
 this.isCompile = function () {
+    //returns boolean that other tasks use to check, if gulp is building or compiling
     return compileFlag;
 };
 
@@ -59,13 +61,16 @@ gulp.task('images', function() {
   return gulp.src('./src/images/**/*')
     //.pipe($.if(!compileFlag, $.changed('./src/images')))
     //.pipe($.if(compileFlag, $.changed('./build/images')))
-    .pipe($.changed('build/images'))
+    //.pipe($.changed('build/images'))
+    .pipe($.if(!compileFlag,$.changed('build/images')))
+    .pipe($.if(compileFlag,$.changed('bin/images')))
     .pipe($.imagemin({
       optimizationLevel: 3,
       progressive: true,
       interlaced: true
     }))
-    .pipe(gulp.dest('./build/images'))
+    //.pipe(gulp.dest('./build/images'))
+    .pipe($.if(!compileFlag,gulp.dest('./build/images')))
     .pipe($.if(compileFlag,gulp.dest('./bin/images')));
 });
 
@@ -105,7 +110,7 @@ gulp.task('minIndex', function() {
     return gulp.src('./src/index.html')
         .pipe($.htmlReplace({
             'appCss': '<link rel="stylesheet" href="assets/mainapp.css"/>',
-            'app': '<link rel="stylesheet" href="assets/mainapp.js"/>'
+            'app': '<script type="text/javascript" src="assets/mainapp.js"></script>'
         }))
         .pipe(gulp.dest('./bin/'))
         ;
@@ -137,10 +142,6 @@ gulp.task('index', function() {
         ;
 });
 
-
-
-
-
 // calculate build folder size
 gulp.task('build:size', function() {
   var s = $.size();
@@ -162,12 +163,6 @@ gulp.task('lint', function () {
         .pipe($.jshint.reporter('fail'))
     ;
 });
-
-
-gulp.task('debug:test', function(){
-    gulp.watch(['karma/*.js','src/**/*.spec.js'], ['karma:serve']);
-});
-
 
 // default task to be run with `gulp` command
 gulp.task('default', function (cb) {
@@ -230,12 +225,10 @@ gulp.task('build:taskList', function(callback) {
         callback);
 });
 
-//TODO complete and check
-//TODO missing move images on compile
+//TODO minor cleanup may still be needed
 gulp.task('compile:taskList', function(callback) {
     compileFlag = true;
     runSequence(
-        //'clean:build',
         'clean:bin',
         'copy',
         'sass:build',

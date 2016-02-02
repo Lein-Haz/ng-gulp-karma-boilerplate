@@ -41,7 +41,6 @@ module.exports = {
             'bower_files/moment/min/moment.min.js',
             'bower_files/angular-moment/angular-moment.min.js',
             'bower_files/angular-ui-grid/ui-grid.min.js',
-            'bower_files/angular-input-masks/angular-input-masks-standalone.min.js',
             'bower_files/angular-animate/angular-animate.min.js',
             'bower_files/angular-material/angular-material.min.js',
             'bower_files/angular-animate/angular-animate.min.js',

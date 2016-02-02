@@ -3,8 +3,6 @@ angular.module( 'gulp-bp', [
     'templates-common',
     'ui.router',
     'ui.bootstrap',
-    'ui.utils.masks',
-    'ui.utils.masks.helpers',
     'angularMoment',
     'gulp-bp.home',
     'gulp-bp.home.events',
@@ -16,11 +14,11 @@ angular.module( 'gulp-bp', [
     'duParallax'
 ])
 
-.config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
+.config(['$stateProvider','$urlRouterProvider' ,function ( $stateProvider, $urlRouterProvider ) {
     $urlRouterProvider.otherwise( '/home' );
-})
+}])
 
-.config(function ($mdThemingProvider) {
+.config(['$mdThemingProvider', function ($mdThemingProvider) {
         $mdThemingProvider.theme('default')
             .dark()
             .primaryPalette('grey',{
@@ -43,10 +41,10 @@ angular.module( 'gulp-bp', [
             })
 
         ;
-    })
+    }])
 
-.run( function run () {
-})
+.run([ function run () {
+}])
 
 .controller( 'AppCtrl',[
         '$scope',
@@ -70,7 +68,6 @@ angular.module( 'gulp-bp', [
 .controller('NavCtrl',[
         '$scope',
         '$mdSidenav',
-
         function($scope, $mdSidenav){
             $scope.snapOpts = {
                 tapToClose: true,

@@ -2,7 +2,7 @@ angular.module('gulp-bp.links',[
     'ui.router'
 ])
 
-.config(function config( $stateProvider ) {
+.config(['$stateProvider',function config( $stateProvider ) {
     $stateProvider.state( 'links', {
         url: '/links',
         views: {
@@ -13,7 +13,7 @@ angular.module('gulp-bp.links',[
         },
         data:{ pageTitle: 'Links' }
     });
-})
+}])
 
 .controller('LinksCtrl',[
         '$scope',
