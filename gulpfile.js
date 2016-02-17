@@ -59,9 +59,6 @@ this.isCompile = function () {
 // optimize images
 gulp.task('images', function() {
   return gulp.src('./src/images/**/*')
-    //.pipe($.if(!compileFlag, $.changed('./src/images')))
-    //.pipe($.if(compileFlag, $.changed('./build/images')))
-    //.pipe($.changed('build/images'))
     .pipe($.if(!compileFlag,$.changed('build/images')))
     .pipe($.if(compileFlag,$.changed('bin/images')))
     .pipe($.imagemin({
@@ -69,7 +66,6 @@ gulp.task('images', function() {
       progressive: true,
       interlaced: true
     }))
-    //.pipe(gulp.dest('./build/images'))
     .pipe($.if(!compileFlag,gulp.dest('./build/images')))
     .pipe($.if(compileFlag,gulp.dest('./bin/images')));
 });
