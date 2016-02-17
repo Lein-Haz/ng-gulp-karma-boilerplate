@@ -43,6 +43,8 @@ require('./gulpTasks/sassTask.js');
 require('./gulpTasks/templateTask.js');
 require('./gulpTasks/bsyncTask.js');
 require('./gulpTasks/compileTask.js');
+require('./gulpTasks/helperTasks.js');
+require('./gulpTasks/addModule.js');
 require('./gulpTasks/watchTask.js');
 require('./karma/karmaGulpTask.js');
 
@@ -120,6 +122,7 @@ gulp.task('index', function() {
         '!src/assets/**/*.js',
         '!src/**/*.spec.js'
     ], {read: false, base: './'});
+    console.log(jsArray);
     return gulp.src('./src/index.html')
         // add app's JS files paths
         .pipe($.inject(jsArray))
@@ -167,6 +170,15 @@ gulp.task('default', function (cb) {
     runSequence(
         'build',
         'watch',
+        cb
+    )
+});
+
+gulp.task('go', function (cb) {
+    runSequence(
+        'createFile',
+        'createJsFile',
+        'createHtmlFile',
         cb
     )
 });

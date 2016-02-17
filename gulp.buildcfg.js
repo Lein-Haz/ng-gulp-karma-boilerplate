@@ -2,6 +2,7 @@
  * Created by Phil on 1/24/2016.
  */
 module.exports = {
+    app_name: 'gulp-bp',
     /**
      * TODO may remove build and compile dir, if not being used any gulp tasks.
      * Later test if vendor files can be dynamically picked up, while ensuring

@@ -4,6 +4,7 @@ sftp-config.json
 /build
 /bin
 /testResults
+/testing
 npm-debug.log
 .idea
 .git
