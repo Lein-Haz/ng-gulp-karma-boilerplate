@@ -7,7 +7,7 @@
  * Thanks to Jozef Butko for creating the
  * original boilerplate that I built upon.
  * The project structure and build system
- * has been modified.
+ * has been massively modified.
  *
  * source author  Jozef Butko
  * date    March 2015
@@ -174,7 +174,7 @@ gulp.task('default', function (cb) {
     )
 });
 
-gulp.task('go', function (cb) {
+gulp.task('create', function (cb) {
     runSequence(
         'createFile',
         'createJsFile',

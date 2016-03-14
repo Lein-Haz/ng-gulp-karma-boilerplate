@@ -13,7 +13,7 @@ var moduleType = 'appView';
 var modulePath = '/src/app';
 
 gulp.task('createFile', function(){
-    return gulp.src('testing/theTest.js')
+    return gulp.src('./gulpTasks/gulpTemplates/moduleTpl.js')
         .pipe($.prompt.prompt([{
             type: 'checkbox',
             name: 'modType',
@@ -22,7 +22,7 @@ gulp.task('createFile', function(){
         },{
             type: 'input',
             name: 'nameEntry',
-            message: 'Enter a name for the module, in "camelCase"'
+            message: 'Enter a name for the module, in camelCase'
         }], function(res){
             return varSet(res);
         }))
